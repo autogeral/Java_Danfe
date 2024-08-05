@@ -12,21 +12,30 @@ public class TesteImpressaoNFe {
     public static void main(String[] args) {
         try {
             //Faça a leitura do Arquivo
-            String xml = ImpressaoUtil.leArquivo("d:/teste/nfe.xml");
+            String []  arquivos = new String[]{"35240642580092002977551700000233101958367074",
+                    "35240649871304000113550030002827081507635327",
+                    "42240608771947000108550010000546641798632321"};
 
-            //Aqui está pegando o Layout Padrão
-            Impressao impressao = ImpressaoUtil.impressaoPadraoNFe(xml);
+            for(String arquivo:arquivos) {
+                String xml = ImpressaoUtil.leArquivo("D:/tmp/" + arquivo + ".xml");
 
-            //Faz a impressão em pdf File
-            impressaoPdfArquivo(impressao);
-            System.out.println("Impressão Pdf Arquivo OK");
+                //Aqui está pegando o Layout Padrão
+                Impressao impressao = ImpressaoUtil.impressaoPadraoNFe(xml);
+
+                String destino = "D:/tmp/" + arquivo + ".pdf";
+                //Faz a impressão em pdf File
+                impressaoPdfArquivo(impressao, destino);
+                System.out.println("Impressão Pdf Arquivo OK");
+            }
+
+
         } catch (Exception e) {
             //Trate seus erros aqui
             e.printStackTrace();
         }
     }
 
-    private static void impressaoPdfArquivo(Impressao impressao) throws IOException, JRException, ParserConfigurationException, SAXException {
-        ImpressaoService.impressaoPdfArquivo(impressao, "d:/teste/teste-nfe.pdf");
+    private static void impressaoPdfArquivo(Impressao impressao, String arquivo) throws IOException, JRException, ParserConfigurationException, SAXException {
+        ImpressaoService.impressaoPdfArquivo(impressao, arquivo);
     }
 }

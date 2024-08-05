@@ -12,10 +12,30 @@ public class TesteImpressaoNFCe {
     public static void main(String[] args) {
         try {
             //Faça a leitura do Arquivo
-            String xml = ImpressaoUtil.leArquivo("d:/teste/nfce.xml");
+            String xml = ImpressaoUtil.leArquivo("D:/tmp/51240702713285000133650010000265431000530861-nfe.xml");
 
             //Informe a Url de Consulta do NFCe de seu Estado
-            String urlConsulta = "www.sefaznet.ac.gov.br/nfce/consulta";
+
+            /**
+             * Av. Itu 400 anos nº111 – Bairro Novo Centro
+             * UF: SP
+             * CEP: 13.303-500
+             * DDD: 11
+             * Fone: 4886-9065
+             */
+
+            /**
+             * Cidade: Salto
+             * Órgão: Procon
+             * Responsável: Eurice Carvalho de Araujo Gonçalves
+             * Endereço: Rua José Revel, nº 270 – Centro
+             * UF: SP
+             * CEP: 13.320-020
+             * E-mail: procon@salto.sp.gov.br (somente para dúvidas)
+             */
+
+            //String urlConsulta = "www.sefaznet.ac.gov.br/nfce/consulta";
+            String urlConsulta = "www.nfce.fazenda.sp.gov.br/NFCeConsultaPublica/Paginas/ConsultaQRCode.aspx";
             //Aqui está pegando o Layout Padrão
             Impressao impressao = ImpressaoUtil.impressaoPadraoNFCe(xml, urlConsulta);
 
@@ -29,7 +49,7 @@ public class TesteImpressaoNFCe {
     }
 
     private static void impressaoPdfArquivo(Impressao impressao) throws IOException, JRException, ParserConfigurationException, SAXException {
-        ImpressaoService.impressaoPdfArquivo(impressao, "d:/teste/teste-nfce.pdf");
+        ImpressaoService.impressaoPdfArquivo(impressao, "D:/tmp/teste-nfce.pdf");
     }
 
 }
