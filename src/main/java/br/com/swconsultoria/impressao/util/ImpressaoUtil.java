@@ -1,18 +1,12 @@
 package br.com.swconsultoria.impressao.util;
 
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PARAM_LOGO_CTE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PARAM_LOGO_MDFE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PARAM_LOGO_NFCE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PARAM_LOGO_NFE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_CCE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_CTE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_LOGO_CTE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_LOGO_MDFE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_LOGO_NFCE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_LOGO_NFE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_MDFE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_NFCE;
-import static br.com.swconsultoria.impressao.util.ConstantesUtil.PATH_NFE;
+import br.com.swconsultoria.impressao.exception.DanfeException;
+import br.com.swconsultoria.impressao.model.Impressao;
+import br.com.swconsultoria.impressao.model.JasperEnum;
+import br.com.swconsultoria.impressao.service.ImpressaoService;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,13 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.StringJoiner;
 
-import br.com.swconsultoria.impressao.exception.DanfeException;
-import br.com.swconsultoria.impressao.model.Impressao;
-import br.com.swconsultoria.impressao.model.JasperEnum;
-import br.com.swconsultoria.impressao.service.ImpressaoService;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
+import static br.com.swconsultoria.impressao.util.ConstantesUtil.*;
 
 /**
  * Classe responsavel por armazenar os metodos uteis
