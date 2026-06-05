@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DanfeNFCe" printOrder="Horizontal" pageWidth="208" pageHeight="792" columnWidth="200" leftMargin="4" rightMargin="4" topMargin="0" bottomMargin="4" isIgnorePagination="true" uuid="2ee59f2c-90ef-45b6-820e-6d2b3ab6db90">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="48"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="NFCe.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="NO_DATA_ADAPTER"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
 	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
@@ -207,6 +207,27 @@
 	</field>
 	<field name="destinatarioEnderecoNro" class="java.lang.String">
 		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/dest/enderDest/nro]]></fieldDescription>
+	</field>
+	<field name="entregaCpf" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/CPF]]></fieldDescription>
+	</field>
+	<field name="entregaLogradouro" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/xLgr]]></fieldDescription>
+	</field>
+	<field name="entregaNumero" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/nro]]></fieldDescription>
+	</field>
+	<field name="entregaComplemento" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/xCpl]]></fieldDescription>
+	</field>
+	<field name="entregaBairro" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/xBairro]]></fieldDescription>
+	</field>
+	<field name="entregaMunicipio" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/xMun]]></fieldDescription>
+	</field>
+	<field name="entregaUF" class="java.lang.String">
+		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/entrega/UF]]></fieldDescription>
 	</field>
 	<field name="valorTotalProduto" class="java.lang.String">
 		<fieldDescription><![CDATA[/nfeProc/NFe/infNFe/total/ICMSTot/vProd]]></fieldDescription>
@@ -714,6 +735,23 @@ $F{dhRecbto}.substring(11,19)]]></textFieldExpression>
 						<pen lineStyle="Dotted"/>
 					</graphicElement>
 				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="GroupEntrega">
+		<groupExpression><![CDATA[$F{entregaLogradouro}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<textField>
+					<reportElement x="1" y="0" width="198" height="40" uuid="2376d67f-bb3e-45b0-8024-68626037f0e7"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{entregaLogradouro}!=null?"Entrega: "+$F{entregaLogradouro}+ ", Nº "+ $F{entregaNumero}:"") 
++($F{entregaComplemento}!=null?" comp.: "+$F{entregaComplemento}:"") 
++($F{entregaBairro}!=null?"Bairro: "+ $F{entregaBairro}:"") 
++($F{entregaMunicipio}!=null?" - "+$F{entregaMunicipio}:"")]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
